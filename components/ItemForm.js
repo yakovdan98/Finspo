@@ -12,7 +12,7 @@ const ItemForm = (props) => {
   }
 
   return ( 
-    <form>
+    <form onSubmit={handleSumbit}>
       <label>
         Name:
         <input type="text" name="name" />
