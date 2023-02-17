@@ -3,22 +3,29 @@ import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
-  const [yesClick, setYes] = useState(true);
-  const click = true;
+  const [yesClick, setYes] = useState(false);
 
+  let content = null;
+
+  if (yesClick) {
+    content = <Text>I love you jora c:</Text>
+  } else {
+    content = 
+      <>
+        <Text>Do You love me?</Text>
+        <Button 
+          onPress={() => setYes(yesClick => !yesClick)}
+          title="Yes"
+        />
+        <Button 
+          onPress={() => setYes(yesClick => !yesClick)}
+          title="Yes"
+        />
+      </>
+  }
   return (
     <View style={styles.container}>
-      if ({click}) {
-        <Text>I love you jora c:</Text>
-      } 
-      {/* else {
-        <>
-          <Text>Do You love me?</Text>
-          <Button onPress={() => setYes(yesClick = true)}>Yes</Button>
-          <Button onPress={() => setYes(yesClick = true)}>Yes</Button>
-        </>
-        
-      } */}
+      {content}
       <StatusBar style="auto" />
     </View>
   );
