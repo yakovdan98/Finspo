@@ -1,26 +1,24 @@
 import React from 'react';
 import { v4 } from 'uuid';
+import { useForm } from 'react-hook-form';
+
 const ItemForm = (props) => {
-  
-  function handleSumbit(event) {
-    event.preventDefault();
-    props.onFormSubmit({
-      name: event.target.name.value,
-      desc: event.target.desc.value,
-      key: v4()
-    });
-  }
+  const { register, handleSubmit} = useForm(); 
+
+  const onSubmit = data => console.log(data);
+  // function onSubmit(event) {
+  //   event.preventDefault();
+  //   console.log(event);
+  //   props.onFormSubmit({
+  //   });
+  // }
 
   return ( 
-    <form onSubmit={handleSumbit}>
-      <label>
-        Name:
-        <input type="text" name="name" />
-      </label>
-      <label>
-        <input type="text" name="desc" />
-      </label>
-      <input type="submit" value="Add" />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("name")}/>
+      <input {...register("desc")}/>
+      <input type="submit"/>
+      
     </form>
    );
 }
