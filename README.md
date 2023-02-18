@@ -4,3 +4,4 @@
 
 3:02 pm started watching https://www.youtube.com/watch?v=VozPNrt-LfE&ab_channel=Academind
 
+3:55 pm 39:52 into https://www.youtube.com/watch?v=VozPNrt-LfE&ab_channel=Academind
