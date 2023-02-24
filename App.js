@@ -1,19 +1,25 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
-import Item from './components/Item';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator  } from '@react-navigation/bottom-tabs';
+
+import Home from './components/Home';
 import Header from './components/Header';
-import React from 'react';
 import ItemControl from './components/ItemControl';
 
-
+const Tab = createBottomTabNavigator();
 export default function App() {
   return (
-    <View>
+    <NavigationContainer>
       <Header/>
-      <ItemControl />
-      <StatusBar style="auto" />
-    </View>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home}/>
+        <Tab.Screen name="Form" component={ItemControl}/>
+      </Tab.Navigator>
+    </NavigationContainer>
+
   );
 }
 

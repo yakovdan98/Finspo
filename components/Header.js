@@ -5,7 +5,7 @@ import React from 'react';
 const Header = () => {
   return (  
     <View style={styles.headerContainer}>
-      <Text style={styles.header}>Clothing App</Text>
+      <Text style={styles.header}>Finspo</Text>
     </View>
    );
 }

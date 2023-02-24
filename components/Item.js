@@ -3,7 +3,6 @@ import React from 'react';
 
 
 const Item = ({item}) => {
-  console.log(item);
   return (  
     <View style={styles.item}>
       <Text>Name: {item.name}</Text>

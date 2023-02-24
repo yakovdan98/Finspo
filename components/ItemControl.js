@@ -9,7 +9,6 @@ const ItemControl = () => {
   
   const handleAddItems = (newItem) => {
     setItems([...items, newItem]);
-    console.log(items);
   }
 
   return ( 
