@@ -39,4 +39,5 @@ What additional tools, frameworks, libraries, APIs, or other resources will thes
 ### Friday 24 Feb
 1:05 pm started reading https://www.reactnativeschool.com/how-to-upload-images-in-a-react-native-app
 1:50 pm finished reading https://www.reactnativeschool.com/how-to-upload-images-in-a-react-native-app
+1:54 pm started reading https://www.waldo.com/blog/add-an-image-picker-react-native-app
 
