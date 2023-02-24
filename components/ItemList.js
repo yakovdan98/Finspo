@@ -1,12 +1,15 @@
 import { View } from "react-native";
-import React from 'react';
+import React, { useContext } from 'react';
+import Item from "./Item";
 
 
-const ItemList = () => {
+const ItemList = ({items}) => {
 
   return ( 
     <View>
-
+      {items.map((item) => 
+        <Item key={item.key} item={item}/>
+      )}
     </View>
     );
 }

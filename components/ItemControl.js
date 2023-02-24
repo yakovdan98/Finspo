@@ -1,19 +1,22 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import ItemForm from "./ItemForm";
 import React from 'react';
-
+import ItemList from "./ItemList";
 
 const ItemControl = () => {
-  const [items, setItems] = useState({});
+  const [items, setItems] = useState([]);
+
   
   const handleAddItems = (newItem) => {
-    // const newItems = [...items, newItem];
-    // setItems(newItems);
-    console.log(newItem)
+    setItems([...items, newItem]);
+    console.log(items);
   }
 
   return ( 
-    <ItemForm onFormSubmit = {handleAddItems}/>
+    <>
+      <ItemForm onFormSubmit = {handleAddItems}/>
+      <ItemList items={items}/>
+    </>
    );
 }
  

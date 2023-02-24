@@ -18,7 +18,7 @@ const ItemForm = (props) => {
       }
     )
   }
-   
+
 
 
   return (
@@ -27,7 +27,7 @@ const ItemForm = (props) => {
         defaultValue=""
         control={control}
         rules={{
-          required: {value: true, message:'name is required'}
+          required: { value: true, message: 'name is required' }
         }}
         render={({ field: { onChange, value } }) => (
           <TextInput
@@ -36,17 +36,35 @@ const ItemForm = (props) => {
             value={value}
             placeholder="Item"
           />
-          )}
-          name="name"
+        )}
+        name="name"
+      />
+      {errors.name && <Text>This is required.</Text>}
+
+      <Controller
+        defaultValue=""
+        control={control}
+        rules={{
+          required: { value: true, message: 'description is required' }
+        }}
+        render={({ field: { onChange, value } }) => (
+          <TextInput
+            style={styles.input}
+            onChangeText={onChange}
+            value={value}
+            placeholder="Description"
           />
-          {errors.name && <Text>This is required.</Text>}
+        )}
+        name="desc"
+      />
+      {errors.desc && <Text>This is required.</Text>}
       <Button title="Submit" onPress={handleSubmit(onSubmit)} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  input : {
+  input: {
     borderWidth: 2,
     borderColor: "ffffff",
     margin: 5,
