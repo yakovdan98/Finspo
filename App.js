@@ -26,6 +26,8 @@ export default function App() {
                 : 'home-outline';
             } else if (route.name === 'Form') {
               iconName = focused ? 'list' : 'list-outline';
+            } else if (route.name === 'Add Image') {
+              iconName = focused ? 'image' : 'image-outline';
             }
 
             // You can return any component that you like here!
@@ -37,6 +39,7 @@ export default function App() {
       >
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Form" component={ItemControl} />
+        <Tab.Screen name="Add Image" component={ImageControl} />
       </Tab.Navigator>
     </NavigationContainer>
 
