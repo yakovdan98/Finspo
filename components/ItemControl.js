@@ -7,8 +7,9 @@ const ItemControl = () => {
   const [items, setItems] = useState({});
   
   const handleAddItems = (newItem) => {
-    const newItems = [...items, newItem];
-    setItems(newItems);
+    // const newItems = [...items, newItem];
+    // setItems(newItems);
+    console.log(newItem)
   }
 
   return ( 

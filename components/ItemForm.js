@@ -11,7 +11,12 @@ const ItemForm = (props) => {
   });
 
   const onSubmit = (data) => {
-    props.onFormSubmit()
+    props.onFormSubmit(
+      {
+        ...data,
+        key: v4()
+      }
+    )
   }
    
 
