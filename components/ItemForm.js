@@ -1,37 +1,52 @@
 import React from 'react';
 import { v4 } from 'uuid';
 import { useForm, Controller } from 'react-hook-form';
-import { Button, TextInput, View } from 'react-native';
+import { Text, Button, TextInput, View, StyleSheet } from 'react-native';
 
 const ItemForm = (props) => {
-  const {
-    control,
-    handleSubmit,
-    formState: {errors, isValid}
-  } = useForm({mode: 'onBlur'})
+  const { control, handleSubmit, formState: { errors } } = useForm({
+    defaultValues: {
+      name: ''
+    }
+  });
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data) => {
+    props.onFormSubmit()
+  }
+   
 
 
-  return ( 
+  return (
     <View>
-      <Controller 
+      <Controller
+        defaultValue=""
         control={control}
-        name="name"
-        render={({field: {onChange, value, onBlur}}) => (
-          <TextInputField
-            iconName = "name"
-            iconType = "MaterialIcons"
-            placeholder = "name"
-            value ={value}
-            onBlur = {onBlur}
-            onChangeText = {value => onChange(value)}
+        rules={{
+          required: {value: true, message:'name is required'}
+        }}
+        render={({ field: { onChange, value } }) => (
+          <TextInput
+            style={styles.input}
+            onChangeText={onChange}
+            value={value}
+            placeholder="Item"
           />
-        )}
-      />
-      <Button title='Submit' onPress={handleSubmit(onSubmit)} />
+          )}
+          name="name"
+          />
+          {errors.name && <Text>This is required.</Text>}
+      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
     </View>
-   );
+  );
 }
- 
+
+const styles = StyleSheet.create({
+  input : {
+    borderWidth: 2,
+    borderColor: "ffffff",
+    margin: 5,
+    borderRadius: 10,
+    padding: 10
+  }
+})
 export default ItemForm;
