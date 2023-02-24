@@ -36,3 +36,6 @@ What additional tools, frameworks, libraries, APIs, or other resources will thes
 
 3:55 pm 39:52 into https://www.youtube.com/watch?v=VozPNrt-LfE&ab_channel=Academind
 
+### Friday 24 Feb
+1:05 pm started reading https://www.reactnativeschool.com/how-to-upload-images-in-a-react-native-app
+
