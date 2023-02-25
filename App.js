@@ -9,6 +9,7 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 import Home from './components/Home';
 import Header from './components/Header';
 import ItemControl from './components/ItemControl';
+import ImageControl from './components/ImageControl';
 
 const Tab = createBottomTabNavigator();
 export default function App() {
