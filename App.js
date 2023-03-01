@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
@@ -12,37 +12,50 @@ import ItemControl from './components/ItemControl';
 import ImageControl from './components/ImageControl';
 
 const Tab = createBottomTabNavigator();
+export const itemsContext = createContext(null);
+
 export default function App() {
+  const [outfits, setOutfits] = useState([]);
+  const [clothes, setClothes] = useState([]);
+
   return (
-    <NavigationContainer>
-      <Header />
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
+    <itemsContext.Provider value={{ outfits: [outfits, setOutfits], clothes: [clothes, setClothes] }}>
+      <NavigationContainer>
+        <Header />
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            headerShown: false,
+            tabBarShowLabel: false,
+            tabBarIcon: ({ focused, color, size }) => {
+              let iconName;
 
-            if (route.name === 'Home') {
-              iconName = focused
-                ? 'home'
-                : 'home-outline';
-            } else if (route.name === 'Form') {
-              iconName = focused ? 'list' : 'list-outline';
-            } else if (route.name === 'Add Image') {
-              iconName = focused ? 'image' : 'image-outline';
-            }
+              if (route.name === 'Home') {
+                iconName = focused
+                  ? 'home'
+                  : 'home-outline';
+              } else if (route.name === 'Form') {
+                iconName = focused
+                  ? 'add-circle'
+                  : 'add-circle-outline';
+              } else if (route.name === 'Closet') {
+                iconName = focused
+                  ? 'copy'
+                  : 'copy-outline';
+              }
 
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: 'black',
-          tabBarInactiveTintColor: 'black',
-        })}
-      >
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Form" component={ItemControl} />
-        <Tab.Screen name="Add Image" component={ImageControl} />
-      </Tab.Navigator>
-    </NavigationContainer>
+              // You can return any component that you like here!
+              return <Ionicons name={iconName} size={size} color={color} />;
+            },
+            tabBarActiveTintColor: 'black',
+            tabBarInactiveTintColor: 'black',
+          })}
+        >
+          <Tab.Screen name="Home" component={Home} />
+          <Tab.Screen name="Form" component={ItemControl} />
+          <Tab.Screen name="Closet" component={ImageControl} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </itemsContext.Provider>
 
   );
 }

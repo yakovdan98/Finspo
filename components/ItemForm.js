@@ -66,7 +66,7 @@ const ItemForm = (props) => {
 const styles = StyleSheet.create({
   input: {
     borderWidth: 2,
-    borderColor: "ffffff",
+    borderColor: "#000",
     margin: 5,
     borderRadius: 10,
     padding: 10
