@@ -5,7 +5,7 @@ import { Text, Button, TextInput, View, StyleSheet } from 'react-native';
 
 
 const AddClothes = () => {
-    const { control, handleSubmit, formState: { errors } } = useForm({
+  const { control, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       name: ''
     }
@@ -15,7 +15,7 @@ const AddClothes = () => {
     console.log(data);
   }
 
-  return ( 
+  return (
     <View>
       <Controller
         defaultValue=""
@@ -52,18 +52,24 @@ const AddClothes = () => {
         name="desc"
       />
       {errors.desc && <Text>This is required.</Text>}
-      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+      <View style={styles.FormButton}>
+
+        <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+      </View>
     </View>
-   );
+  );
 }
 
- const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   input: {
     borderWidth: 2,
     borderColor: "#000",
     margin: 5,
     borderRadius: 10,
     padding: 10
+  },
+  FormButton: {
+    margin: 10
   }
 })
 export default AddClothes;
