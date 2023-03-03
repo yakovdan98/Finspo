@@ -52,7 +52,11 @@ const AddOutfits = () => {
         name="desc"
       />
       {errors.desc && <Text>This is required.</Text>}
-      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+
+      <View style={styles.FormButton}>
+        <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+
+      </View>
     </View>
   );
 }
@@ -64,6 +68,9 @@ const styles = StyleSheet.create({
     margin: 5,
     borderRadius: 10,
     padding: 10
+  },
+  FormButton: {
+    margin: 10
   }
 })
 
