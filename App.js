@@ -10,8 +10,8 @@ import { ClothesProvider } from './contexts/clothes';
 
 import Home from './components/Home';
 import Header from './components/Header';
-import ItemControl from './components/ItemControl';
 import ImageControl from './components/ImageControl';
+import FormControl from './components/FormControl';
 
 const Tab = createBottomTabNavigator();
 
@@ -51,7 +51,7 @@ export default function App() {
             })}
           >
             <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="Form" component={ItemControl} />
+            <Tab.Screen name="Form" component={FormControl} />
             <Tab.Screen name="Closet" component={ImageControl} />
           </Tab.Navigator>
         </NavigationContainer>

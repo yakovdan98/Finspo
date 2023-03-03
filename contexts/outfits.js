@@ -1,6 +1,6 @@
 // outfits.js
 
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 
 const OutfitContext = React.createContext();
 
