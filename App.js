@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from '@expo/vector-icons/Ionicons'
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { OutfitProvider } from './hooks/outfits';
+import { ClothesProvider } from './hooks/clothes';
 
 import Home from './components/Home';
 import Header from './components/Header';
@@ -16,8 +18,6 @@ export const outfitsContext = createContext(null);
 export const clothesContext = createContext(null);
 
 export default function App() {
-  const [outfits, setOutfits] = useState([]);
-  const [clothes, setClothes] = useState([]);
 
   return (
     <outfitsContext.Provider value={[outfits, setOutfits]}>
