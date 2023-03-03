@@ -12,14 +12,17 @@ import ItemControl from './components/ItemControl';
 import ImageControl from './components/ImageControl';
 
 const Tab = createBottomTabNavigator();
-export const itemsContext = createContext(null);
+export const outfitsContext = createContext(null);
+export const clothesContext = createContext(null);
 
 export default function App() {
   const [outfits, setOutfits] = useState([]);
   const [clothes, setClothes] = useState([]);
 
   return (
-    <itemsContext.Provider value={{ outfits: [outfits, setOutfits], clothes: [clothes, setClothes] }}>
+    <outfitsContext.Provider value={[outfits, setOutfits]}>
+      <clothesContext.Provider value={[clothes, setClothes]}>
+        
       <NavigationContainer>
         <Header />
         <Tab.Navigator
@@ -55,7 +58,8 @@ export default function App() {
           <Tab.Screen name="Closet" component={ImageControl} />
         </Tab.Navigator>
       </NavigationContainer>
-    </itemsContext.Provider>
+      </clothesContext.Provider>
+    </outfitsContext.Provider>
 
   );
 }
