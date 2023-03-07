@@ -36,26 +36,26 @@ const AddItems = (props) => {
   }
 
   const onSubmit = (data) => {
-    console.log(data);
+    
     if (props.type === 1) {
       const newClothes = {
-        id: v4(),
+        key: v4(),
         name: data.Item,
         description: data.Description,
         image: image,
       }
-      clothesUpdate([...clothes, newClothes]);
+      console.log(newClothes);
+      clothesUpdate(clothes.concat(newClothes));
     }
     else {
       const newOutfit = {
-        id: v4(),
+        key: v4(),
         name: data.Item,
         description: data.Description,
         image: image,
       }
-      outfitUpdate([...outfits, newOutfit]);
+      outfitUpdate(outfits.concat(newOutfit));
     }
-
   }
 
 
