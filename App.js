@@ -10,8 +10,8 @@ import { ClothesProvider } from './contexts/clothes';
 
 import Home from './components/Home';
 import Header from './components/Header';
-import ImageControl from './components/ImageControl';
 import FormControl from './components/FormControl';
+import Profile from './components/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,7 +37,7 @@ export default function App() {
                   iconName = focused
                     ? 'add-circle'
                     : 'add-circle-outline';
-                } else if (route.name === 'Closet') {
+                } else if (route.name === 'Profile') {
                   iconName = focused
                     ? 'copy'
                     : 'copy-outline';
@@ -52,7 +52,7 @@ export default function App() {
           >
             <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="Form" component={FormControl} />
-            <Tab.Screen name="Closet" component={ImageControl} />
+            <Tab.Screen name="Profile" component={Profile} />
           </Tab.Navigator>
         </NavigationContainer>
 
