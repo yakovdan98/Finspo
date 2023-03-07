@@ -2,6 +2,7 @@ import React from 'react';
 import { v4 } from 'uuid';
 import { useForm, Controller } from 'react-hook-form';
 import { Text, Button, TextInput, View, StyleSheet } from 'react-native';
+import FormButton from './FormButton';
 
 
 const AddClothes = () => {
@@ -52,10 +53,9 @@ const AddClothes = () => {
         name="desc"
       />
       {errors.desc && <Text>This is required.</Text>}
-      <View style={styles.FormButton}>
 
-        <Button title="Submit" onPress={handleSubmit(onSubmit)} />
-      </View>
+
+        <FormButton title="Submit" onPress={handleSubmit(onSubmit)} />
     </View>
   );
 }

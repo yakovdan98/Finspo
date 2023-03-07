@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { v4 } from 'uuid';
 import { useForm, Controller } from 'react-hook-form';
-import { Text, Button, TextInput, View, StyleSheet } from 'react-native';
+import { Text, Image, TextInput, View, StyleSheet } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
+import { MediaTypeOptions } from 'expo-image-picker';
+
+import FormButton from './FormButton';
 
 
 const AddOutfits = () => {
@@ -11,12 +15,33 @@ const AddOutfits = () => {
     }
   });
 
+  const [image, setImage] = useState(null);
+
+  const addImage = async () => {
+    let _image = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    console.log(_image.assets);
+    if (!_image.canceled) {
+      setImage(_image.assets[0].uri);
+      console.log(`image uri ${image} `);
+    }
+  }
+
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(data, image);
   }
 
   return (
     <View>
+      {image &&
+        <Image source={{ uri:image }} style={{ width: 400, height: 300}} />
+      }
+      <FormButton onPress={addImage} title="Add Image" />
+
       <Controller
         defaultValue=""
         control={control}
@@ -54,7 +79,7 @@ const AddOutfits = () => {
       {errors.desc && <Text>This is required.</Text>}
 
       <View style={styles.FormButton}>
-        <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+        <FormButton title="Submit" onPress={handleSubmit(onSubmit)} />
 
       </View>
     </View>

@@ -11,8 +11,8 @@ const FormControl = () => {
     <View>
       {showForm === 0 &&
         <>
-            <Button title="Add Clothes" style={styles.FormButton} onPress={() => setForm(1)} />
-            <Button title="Add Outfits" style={styles.FormButton} onPress={() => setForm(2)} />
+            <FormButton title="Add Clothes" onPress={() => setForm(1)} />
+            <FormButton title="Add Outfits" onPress={() => setForm(2)} />
 
         </>
       }
@@ -23,9 +23,7 @@ const FormControl = () => {
         <AddOutfits />
       }
       {showForm !== 0 &&
-        <View style={styles.FormButton}>
-          <Button title="Back" onPress={() => setForm(0)} />
-        </View>
+          <FormButton title="Back" onPress={() => setForm(0)} />
       }
     </View>
   );
