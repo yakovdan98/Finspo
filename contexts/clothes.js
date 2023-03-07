@@ -9,13 +9,13 @@ export const ClothesProvider = ( {children} ) => {
 
 
   return (
-    <ClothesContext.Provider value={{ clothes, update: setClothes }}>
+    <ClothesContext.Provider value={{ clothes, clothesUpdate: setClothes }}>
       {children}
     </ClothesContext.Provider>
   )
 };
 
 export const useClothes = () => {
-  const {clothes, update} = useContext(ClothesContext)
-  return {clothes, update}
+  const {clothes, clothesUpdate} = useContext(ClothesContext)
+  return {clothes, clothesUpdate}
 };

@@ -19,8 +19,8 @@ const FormControl = () => {
 
       {showForm !== 0 &&
         <>
-          <AddItems type={showForm} />
-          <FormButton title="Back" onPress={() => setForm(0)} />
+          <AddItems setForm={setForm} type={showForm} />
+          <FormButton  title="Back" onPress={() => setForm(0)} />
         </>
       }
     </ScrollView>

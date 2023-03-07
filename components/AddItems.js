@@ -56,6 +56,7 @@ const AddItems = (props) => {
       }
       outfitUpdate(outfits.concat(newOutfit));
     }
+    props.setForm(0);
   }
 
 
