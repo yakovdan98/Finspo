@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { v4 } from 'uuid';
 import { useForm, Controller } from 'react-hook-form';
-import { Text, Image, TextInput, View, StyleSheet } from 'react-native';
+import { Text, Image, TextInput, View, StyleSheet, ScrollView } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { MediaTypeOptions } from 'expo-image-picker';
 
@@ -22,7 +22,7 @@ const AddItems = (props) => {
     let _image = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
-      aspect: [4, 3],
+      aspect: [3, 3],
       quality: 1,
     });
     console.log(_image.assets);
@@ -37,63 +37,71 @@ const AddItems = (props) => {
 
   }
 
-  
+
 
   return (
-    <View>
       <View>
-        <Text style={styles.FormHeader}>Adding {formType}</Text>
+
+        <View>
+          <Text style={styles.FormHeader}>Adding {formType}</Text>
+        </View>
+        {image
+          ?
+          <>
+            <FormButton onPress={addImage} title="Change Image" />
+            <Image source={{ uri: image }} style={{ width: 400, height: 400 }} />
+          </>
+          : <FormButton onPress={addImage} title="Add Image" />
+        }
+        <Controller
+          defaultValue=""
+          control={control}
+          rules={{
+            required: { value: true, message: 'name is required' }
+          }}
+          render={({ field: { onChange, value } }) => (
+            <TextInput
+              style={styles.input}
+              onChangeText={onChange}
+              value={value}
+              placeholder="Item"
+            />
+          )}
+          name="name"
+        />
+        {errors.name && <Text style={styles.errorMessage}>This is required.</Text>}
+
+        <Controller
+          defaultValue=""
+          control={control}
+          rules={{
+            required: { value: true, message: 'description is required' }
+          }}
+          render={({ field: { onChange, value } }) => (
+            <TextInput
+              style={styles.input}
+              onChangeText={onChange}
+              value={value}
+              placeholder="Description"
+            />
+          )}
+          name="desc"
+        />
+        {errors.desc && <Text style={styles.errorMessage}>This is required.</Text>}
+
+        <View style={styles.FormButton}>
+          <FormButton title="Submit" onPress={handleSubmit(onSubmit)} />
+
+        </View>
+
       </View>
-      {image &&
-        <Image source={{ uri:image }} style={{ width: 400, height: 300}} />
-      }
-      <FormButton onPress={addImage} title="Add Image" />
-
-      <Controller
-        defaultValue=""
-        control={control}
-        rules={{
-          required: { value: true, message: 'name is required' }
-        }}
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
-            onChangeText={onChange}
-            value={value}
-            placeholder="Item"
-          />
-        )}
-        name="name"
-      />
-      {errors.name && <Text>This is required.</Text>}
-
-      <Controller
-        defaultValue=""
-        control={control}
-        rules={{
-          required: { value: true, message: 'description is required' }
-        }}
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
-            onChangeText={onChange}
-            value={value}
-            placeholder="Description"
-          />
-        )}
-        name="desc"
-      />
-      {errors.desc && <Text>This is required.</Text>}
-
-      <View style={styles.FormButton}>
-        <FormButton title="Submit" onPress={handleSubmit(onSubmit)} />
-
-      </View>
-    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    height: 600
+  },
   input: {
     borderWidth: 2,
     borderColor: "#000",
@@ -109,6 +117,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  errorMessage:{
+    color: 'red'
   }
 
 })
