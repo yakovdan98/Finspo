@@ -15,7 +15,7 @@ export const ClothesProvider = ( {children} ) => {
   )
 };
 
-export const useOutfits = () => {
+export const useClothes = () => {
   const {clothes, update} = useContext(ClothesContext)
   return {clothes, update}
 };
