@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { v4 } from 'uuid';
 import { useForm, Controller } from 'react-hook-form';
 import { Text, Image, TextInput, View, StyleSheet, ScrollView } from 'react-native';
@@ -7,14 +7,19 @@ import { MediaTypeOptions } from 'expo-image-picker';
 
 import FormButton from './FormButton';
 import InputField from './InputField';
+import { useOutfits } from '../contexts/outfits';
+import { useClothes } from '../contexts/clothes';
 
 
 const AddItems = (props) => {
-  const { control, handleSubmit, formState: { errors } } = useForm({
-  });
+  const { control, handleSubmit, formState: { errors } } = useForm({});
 
   const [image, setImage] = useState(null);
+  const {clothes, clothesUpdate} = useClothes();
+  const {outfits, outfitUpdate} = useOutfits();
   const formType = (props.type === 1) ? "Clothes" : "Outfits";
+
+
 
   const addImage = async () => {
     let _image = await ImagePicker.launchImageLibraryAsync({
@@ -32,6 +37,24 @@ const AddItems = (props) => {
 
   const onSubmit = (data) => {
     console.log(data);
+    if (props.type === 1) {
+      const newClothes = {
+        id: v4(),
+        name: data.Item,
+        description: data.Description,
+        image: image,
+      }
+      clothesUpdate([...clothes, newClothes]);
+    }
+    else {
+      const newOutfit = {
+        id: v4(),
+        name: data.Item,
+        description: data.Description,
+        image: image,
+      }
+      outfitUpdate([...outfits, newOutfit]);
+    }
 
   }
 
