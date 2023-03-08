@@ -1,14 +1,22 @@
 import React from 'react';
 import { ScrollView, Text } from 'react-native';
-import ClothesList from './ClothesList';
+import ItemList from './ItemList';
+import Header from './Header';
 import OutfitList from './OutfitList';
-const Profile = () => {
+import { useClothes } from '../contexts/clothes';
+import { useOutfits } from '../contexts/outfits';
 
+const Profile = () => {
+  const { clothes } = useClothes();
+  const { outfits } = useOutfits();
   return (
-    <ScrollView>
-      <ClothesList />
-      <OutfitList />
-    </ScrollView>
+    <>
+      <Header title='Profile' />
+      <ScrollView>
+        <ItemList type='Clothes' list={clothes}/>
+        <ItemList type='Outfits' list={outfits}/>
+      </ScrollView>
+    </>
   );
 }
 

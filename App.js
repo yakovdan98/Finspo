@@ -16,12 +16,12 @@ import Profile from './components/Profile';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  const [showHeader, setShowHeader] = useState(true);
 
   return (
     <OutfitProvider>
       <ClothesProvider>
         <NavigationContainer>
-          <Header />
           <Tab.Navigator
             screenOptions={({ route }) => ({
               headerShown: false,

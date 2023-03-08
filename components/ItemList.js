@@ -1,17 +1,31 @@
-import { View } from "react-native";
-import React, { useContext } from 'react';
-import Item from "./Item";
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
+import Item from './Item';
 
-const ItemList = ({items}) => {
+const ItemList = (props) => {
 
-  return ( 
-    <View>
-      {items.map((item) => 
-        <Item key={item.key} item={item}/>
-      )}
-    </View>
+  const list = props.list.map(item =>
+    <Item key={item.id} item={item} />
+  );
+
+  if (props.list.length === 0) {
+    return (<Text>No {props.type}</Text>)
+  } else {
+    return (
+      <View style={styles.container}>
+        {list}
+      </View>
     );
+  }
 }
- 
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  }
+})
+
+
 export default ItemList;
