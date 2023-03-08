@@ -39,17 +39,18 @@ const AddItems = (props) => {
     
     if (props.type === 1) {
       const newClothes = {
-        key: v4(),
+        id: v4(),
         name: data.Item,
         description: data.Description,
         image: image,
       }
-      console.log(newClothes);
+      
       clothesUpdate(clothes.concat(newClothes));
+      console.log(clothes);
     }
     else {
       const newOutfit = {
-        key: v4(),
+        id: v4(),
         name: data.Item,
         description: data.Description,
         image: image,
