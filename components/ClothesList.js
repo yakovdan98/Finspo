@@ -1,19 +1,29 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { useClothes } from '../contexts/clothes';
+
+import Item from './Item';
 
 const ClothesList = () => {
   const {clothes} = useClothes();
 
   const list = clothes.map(item => 
-      <Text key={item.id}>{item.name}</Text>
+      <Item key={item.id} item={item} />
     );
     
   return (  
-    <View>
+    <View style={styles.container}>
       {list}
     </View>
    );
 }
- 
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  }
+})
+
+  
 export default ClothesList;
