@@ -9,6 +9,7 @@ import FormButton from './FormButton';
 import InputField from './InputField';
 import { useOutfits } from '../contexts/outfits';
 import { useClothes } from '../contexts/clothes';
+import Header from './Header';
 
 
 const AddItems = (props) => {
@@ -64,10 +65,6 @@ const AddItems = (props) => {
 
   return (
     <View>
-
-      <View>
-        <Text style={styles.FormHeader}>Adding {formType}</Text>
-      </View>
       {image
         ?
         <>
