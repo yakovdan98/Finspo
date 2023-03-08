@@ -8,7 +8,7 @@ const FormControl = () => {
   const [showForm, setForm] = useState(0); //0 = default, 1 = clothes, 2 = outfits
   
   return (
-    <ScrollView>
+    <ScrollView keyboardShouldPersistTaps='handled'>
       {showForm === 0 &&
         <>
           <FormButton title="Add Clothes" onPress={() => setForm(1)} />
