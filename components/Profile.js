@@ -1,12 +1,15 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Text } from 'react-native';
+import ClothesList from './ClothesList';
+import OutfitList from './OutfitList';
 const Profile = () => {
-  
-  return ( 
+
+  return (
     <ScrollView>
-      
+      <ClothesList />
+      <OutfitList />
     </ScrollView>
-   );
+  );
 }
- 
+
 export default Profile;
