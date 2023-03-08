@@ -3,17 +3,18 @@ import React from 'react';
 
 
 
-const Header = () => {
+const Header = (props) => {
+
   return (  
     <View style={styles.headerContainer}>
-      <Text style={styles.header}>Finspo</Text>
+      <Text style={styles.header}>{props.title}</Text>
     </View>
    );
 }
 
 const styles = StyleSheet.create({
   headerContainer: {
-    paddingTop: 40,
+    paddingTop: 30,
     paddingBottom: 10,
     justifyContent: "center",
     backgroundColor: '#fab9d8'
