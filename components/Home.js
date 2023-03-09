@@ -1,14 +1,24 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import Header from './Header';
 const Home = () => {
 
-  return ( 
+  return (
     <View>
-      <Header title='Finspo'/>
-      <Text>Home screen</Text>
+      <Header title='Finspo' />
+      <View style={styles.container}>
+        <Text>Home screen</Text>
+
+      </View>
     </View>
-   );
+  );
 }
- 
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: "70%",
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+});
 export default Home;
