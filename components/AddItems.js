@@ -78,10 +78,12 @@ const AddItems = (props) => {
       {image
         ?
         <>
-          <FormButton onPress={addImage} title="Change Image" />
-          <Image source={{ uri: image }} style={{ width: 400, height: 400 }} />
+          <FormButton style={styles.button} onPress={addImage} title="Change Image" />
+          <Image source={{ uri: image }} 
+            style={styles.image} 
+          />
         </>
-        : <FormButton onPress={addImage} title="Add Image" />
+        : <FormButton style={styles.button} onPress={addImage} title="Add Image" />
       }
 
       <InputField
@@ -110,7 +112,7 @@ const AddItems = (props) => {
         />
       }
       <View style={styles.FormButton}>
-        <FormButton title="Submit" onPress={handleSubmit(onSubmit)} />
+        <FormButton style={styles.button} title="Submit" onPress={handleSubmit(onSubmit)} />
       </View>
 
     </View>
@@ -120,9 +122,6 @@ const AddItems = (props) => {
 const styles = StyleSheet.create({
   container: {
     height: 600
-  },
-  FormButton: {
-    margin: 10
   },
   FormHeader: {
     margin: 10,
@@ -138,6 +137,21 @@ const styles = StyleSheet.create({
     width: 'auto',
     borderRadius: 10,
     padding: 10
+  },
+  button: {
+    margin: 5,
+    backgroundColor: '#91f298',
+    borderRadius: 10,
+    alignItems: 'center',
+    padding: 10,
+  },
+  image: {
+    width: "98%",
+    aspectRatio: 1,
+    alignSelf: 'center',
+    padding: 10,
+    margin: 5,
+    borderRadius: 10,
   },
 
 })

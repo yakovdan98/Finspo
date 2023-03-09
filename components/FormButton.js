@@ -1,17 +1,15 @@
 import React from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 const FormButton = (props) => {
     return (  
-        <View style={styles.FormButton}>
-            <Button {...props}/>
-        </View>
+        <TouchableOpacity onPress={props.onPress} style={props.style} >
+          <Text style={{
+            fontSize: props.fontSize,
+          }}>{props.title}</Text>
+        </TouchableOpacity>
+
     );
 }
- 
-const styles = StyleSheet.create({
-  FormButton: {
-    margin: 10
-  }
-})
+
 
 export default FormButton;

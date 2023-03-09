@@ -2,7 +2,6 @@ import React from 'react';
 import { ScrollView, Text } from 'react-native';
 import ItemList from './ItemList';
 import Header from './Header';
-import OutfitList from './OutfitList';
 import { useClothes } from '../contexts/clothes';
 import { useOutfits } from '../contexts/outfits';
 import { SelectedContext } from '../contexts/SelectedContext';

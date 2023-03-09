@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
     padding: 10
   },
   errorMessage:{
-    color: 'red'
+    color: 'red',
+    marginLeft: 10,
   }
 
 })
