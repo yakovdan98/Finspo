@@ -9,15 +9,13 @@ const ItemList = (props) => {
     <Item key={item.id} item={item} />
   );
 
-  if (props.list.length === 0) {
-    return (<Text>No {props.type}</Text>)
-  } else {
+
     return (
       <View style={styles.container}>
         {list}
       </View>
     );
-  }
+
 }
 
 const styles = StyleSheet.create({
