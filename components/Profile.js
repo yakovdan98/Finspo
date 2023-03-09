@@ -20,7 +20,7 @@ const Profile = () => {
     return (
       <>
         <Header title={selectedItem.name} />
-        <FormButton title="Back" onPress={() => setSelectedItem(null)} />
+        <FormButton style={styles.button} title="Back" onPress={() => setSelectedItem(null)} />
         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
           <ItemDetails item={selectedItem} />
         </View >
@@ -31,19 +31,13 @@ const Profile = () => {
       <SelectedContext.Provider value={{ selectedItem, setSelectedItem }}>
         <Header title='Profile' />
         <ScrollView>
-          {clothes.length === 0 && outfits.length === 0 &&
-            <View style={styles.container}>
-              <Text style={{ fontSize: 30 }}>No Items</Text>
-              <Text>Add an item to view it</Text>
-            </View>
-          }
-          {clothes.length !== 0 && !showOutfits &&
+          {!showOutfits &&
             <>
               <FormButton style={styles.button} onPress={() => setShowOutfits(prev => !prev)} title="Show Outfits"/>
               <ItemList type='Clothes' list={clothes} />
             </>
           }
-          {outfits.length !== 0 && showOutfits&&
+          {showOutfits &&
             <>
               <FormButton style={styles.button} onPress={() => setShowOutfits(prev => !prev)} title="Show Clothes"/>
               <ItemList type='Outfits' list={outfits} />
@@ -57,11 +51,7 @@ const Profile = () => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: "70%",
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
+
   button: {
     backgroundColor: '#aae6c0',
     padding: 10,

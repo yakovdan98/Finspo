@@ -3,17 +3,17 @@ import { Text, View, StyleSheet, Image } from 'react-native';
 const ItemDetails = ({ item }) => {
   return (
     <View style={styles.container}>
-      
+
       <View style={styles.item}>
         <Image source={{ uri: item.image }} resizeMode={'cover'} style={{ width: '100%', height: '100%' }} />
       </View>
-      <Text>{item.description}</Text>
+      <Text style={styles.description}>{item.description}</Text>
     </ View>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    backgroundColor : 'white',
+    backgroundColor: 'white',
     paddingBottom: 20,
     borderRadius: 10,
 
@@ -33,5 +33,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     overflow: 'hidden',
   },
+  description: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  }
 });
 export default ItemDetails;
