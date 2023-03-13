@@ -1,3 +1,66 @@
+# Finspo           
+
+## Contributers
+* Daniel Yakovlev
+
+## Description
+An Android application that allows users to store outfits they have worn and clothes to reference them in the future or post them publically so others can have inspiration for their outfits         
+
+## Technologies Used
+
+* React Native
+* Android
+* Expo
+* CSS 
+* Javascript
+
+## Diagram
+![Diagram](./diagram.png)
+
+## Setup/Installation Requirements
+
+* Clone this repo to your workspace.
+* Navigate to the top level of the directory.
+* In the root directory of the project, run:
+```
+$ npm install
+```
+* Then, to build and serve the project, run: 
+```
+$ npx expo start
+```
+* Download Expo Go app
+* Connect to Expo server with QR code in terminal
+
+
+## Known Bugs
+* Photos and outfits wont save persistently
+
+## License
+
+MIT License
+
+Copyright (c) 2023 Daniel Yakovlev
+
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 Capstone proj
 
 Name of Student: Daniel Yakovlev  
