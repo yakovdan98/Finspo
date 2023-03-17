@@ -5,6 +5,7 @@ import { Image, TextInput, View, StyleSheet, ScrollView } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { MediaTypeOptions } from 'expo-image-picker';
 import DropDownPicker from 'react-native-dropdown-picker';
+import * as FileSystem from 'expo-file-system';
 
 import FormButton from './FormButton';
 import InputField from './InputField';
@@ -19,7 +20,6 @@ const AddItems = (props) => {
   const [image, setImage] = useState(null);
   const { clothes, clothesUpdate } = useClothes();
   const { outfits, outfitUpdate } = useOutfits();
-  const formType = (props.type === 1) ? "Clothes" : "Outfits";
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -46,27 +46,26 @@ const AddItems = (props) => {
     }
   }
 
-  const onSubmit = (data) => {
-
+    const onSubmit = async (data) => {
+    const id = v4();
+    const newUri = FileSystem.documentDirectory + id + '.jpg';
+    console.log(`image uri ${image} `);
+    console.log(`newuri ${newUri}`);
+    await FileSystem.moveAsync({
+      from: image,
+      to: newUri,
+    })
+    const newItem = {
+      id: id,
+      name: data.Item,
+      description: data.Description,
+      image: newUri,
+    }
     if (props.type === 1) {
-      const newClothes = {
-        id: v4(),
-        name: data.Item,
-        description: data.Description,
-        image: image,
-      }
-
-      clothesUpdate(clothes.concat(newClothes));
-      console.log(clothes);
+      clothesUpdate(clothes.concat(newItem));
     }
     else {
-      const newOutfit = {
-        id: v4(),
-        name: data.Item,
-        description: data.Description,
-        image: image,
-      }
-      outfitUpdate(outfits.concat(newOutfit));
+      outfitUpdate(outfits.concat(newItem));
     }
     props.setForm(0);
   }

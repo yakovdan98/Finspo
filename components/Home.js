@@ -1,8 +1,12 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import Header from './Header';
-const Home = () => {
 
+/**
+ * displays home screen with header and text "Home screen"
+ * @returns Home screen
+ */
+const Home = () => {
   return (
     <View>
       <Header title='Finspo' />
