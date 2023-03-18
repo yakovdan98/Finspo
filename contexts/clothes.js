@@ -1,5 +1,5 @@
 // clothes.js
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useContext, useState, useEffect} from 'react';
 
 const ClothesContext = React.createContext();

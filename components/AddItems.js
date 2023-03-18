@@ -6,6 +6,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { MediaTypeOptions } from 'expo-image-picker';
 import DropDownPicker from 'react-native-dropdown-picker';
 import * as FileSystem from 'expo-file-system';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import FormButton from './FormButton';
 import InputField from './InputField';
