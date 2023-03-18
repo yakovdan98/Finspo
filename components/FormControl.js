@@ -42,7 +42,7 @@ const FormControl = () => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#aae6c0',
+    backgroundColor: '#43AD4D',
     padding: 10,
     margin: 10,
     borderRadius: 10,
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   backButton: {
-    backgroundColor: '#d4505c',
+    backgroundColor: '#AD2B0E',
     padding: 10,
     margin: 10,
     borderRadius: 10,

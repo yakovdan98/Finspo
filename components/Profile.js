@@ -53,7 +53,7 @@ const Profile = () => {
 const styles = StyleSheet.create({
 
   button: {
-    backgroundColor: '#aae6c0',
+    backgroundColor: '#43AD4D',
     padding: 10,
     margin: 10,
     borderRadius: 10,
