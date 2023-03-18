@@ -19,8 +19,14 @@ export default function App() {
   const [showHeader, setShowHeader] = useState(true);
 
   return (
+
     <OutfitProvider>
       <ClothesProvider>
+        <StatusBar 
+          style='dark' 
+          translucent={true}
+          drawBehind={true}
+        />
         <NavigationContainer>
           <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -50,6 +56,7 @@ export default function App() {
               tabBarInactiveTintColor: 'black',
             })}
           >
+
             <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="Form" component={FormControl} />
             <Tab.Screen name="Profile" component={Profile} />

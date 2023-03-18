@@ -46,7 +46,20 @@ const AddItems = (props) => {
     }
   }
 
-    const onSubmit = async (data) => {
+  const storeData = async (type) => {
+    try {
+      if(type === 1)
+      {
+        await AsyncStorage.setItem('@clothes', JSON.stringify(clothes));
+      } else {
+        await AsyncStorage.setItem('@outfits', JSON.stringify(outfits));
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  const onSubmit = async (data) => {
     const id = v4();
     const newUri = FileSystem.documentDirectory + id + '.jpg';
     console.log(`image uri ${image} `);
@@ -63,9 +76,11 @@ const AddItems = (props) => {
     }
     if (props.type === 1) {
       clothesUpdate(clothes.concat(newItem));
+      storeData(1);
     }
     else {
       outfitUpdate(outfits.concat(newItem));
+      storeData(2);
     }
     props.setForm(0);
   }
@@ -78,8 +93,8 @@ const AddItems = (props) => {
         ?
         <>
           <FormButton style={styles.button} onPress={addImage} title="Change Image" />
-          <Image source={{ uri: image }} 
-            style={styles.image} 
+          <Image source={{ uri: image }}
+            style={styles.image}
           />
         </>
         : <FormButton style={styles.button} onPress={addImage} title="Add Image" />

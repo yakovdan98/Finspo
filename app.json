@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Capstone",
-    "slug": "Capstone",
+    "name": "Finspo",
+    "slug": "finspo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,7 +12,8 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/47383b57-11bc-41f3-ad82-bcb4e13e654c"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -24,10 +25,20 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.dannyvich.finspo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "47383b57-11bc-41f3-ad82-bcb4e13e654c"
+      }
+    },
+    "owner": "dannyvich",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }
