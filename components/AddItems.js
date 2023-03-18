@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { v4 } from 'uuid';
 import { useForm, Controller } from 'react-hook-form';
 import { Image, TextInput, View, StyleSheet, ScrollView } from 'react-native';
@@ -48,17 +48,34 @@ const AddItems = (props) => {
   }
 
   const storeData = async (type) => {
+    let jsonValue = null;
     try {
       if(type === 1)
       {
+        
         await AsyncStorage.setItem('@clothes', JSON.stringify(clothes));
+        jsonValue = await AsyncStorage.getItem('@clothes')
       } else {
+        
         await AsyncStorage.setItem('@outfits', JSON.stringify(outfits));
+        jsonValue = await AsyncStorage.getItem('@outfits')
       }
+      console.log('Data saved');
+      console.log(jsonValue);
     } catch (e) {
       console.log(e);
     }
   }
+
+  useEffect(() => {
+    console.log(clothes);
+    storeData(1);
+  }, [clothes]);
+
+  useEffect(() => {
+    console.log(outfits);
+    storeData(2);
+  }, [outfits]);
 
   const onSubmit = async (data) => {
     const id = v4();
@@ -76,12 +93,14 @@ const AddItems = (props) => {
       image: newUri,
     }
     if (props.type === 1) {
-      clothesUpdate(clothes.concat(newItem));
-      storeData(1);
+      let newClothes = [...clothes];
+      newClothes.push(newItem);
+      clothesUpdate(newClothes);
     }
     else {
-      outfitUpdate(outfits.concat(newItem));
-      storeData(2);
+      let newOutfits = [...outfits];
+      newOutfits.push(newItem);
+      outfitUpdate(newOutfits);
     }
     props.setForm(0);
   }

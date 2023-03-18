@@ -12,6 +12,7 @@ export const OutfitProvider = ( {children} ) => {
     try {
       const jsonValue = await AsyncStorage.getItem('@outfits')
       if (jsonValue !== null) {
+        console.log(JSON.parse(jsonValue));
         setOutfits(JSON.parse(jsonValue));
       }
     } catch (error) {

@@ -11,6 +11,7 @@ export const ClothesProvider = ( {children} ) => {
     try {
       const jsonValue = await AsyncStorage.getItem('@clothes')
       if (jsonValue !== null) {
+        console.log(JSON.parse(jsonValue));
         setClothes(JSON.parse(jsonValue));
       }
     } catch (error) {
