@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, Text, View, StyleSheet } from 'react-native';
+import { ScrollView, View, StyleSheet } from 'react-native';
 import ItemList from './ItemList';
 import Header from './Header';
 import { useClothes } from '../contexts/clothes';

@@ -16,7 +16,8 @@
         "resourceClass": "m-medium"
       }
     },
-    "buildAPK": {
+    "previewAPK": {
+      "channel": "preview",
       "android": {
         "buildType": "apk"
       }

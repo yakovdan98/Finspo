@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Image, useWindowDimensions, Pressable } from "react-native";
+import { StyleSheet, Image, Pressable } from "react-native";
 import React, {useContext} from 'react';
 import { SelectedContext } from '../contexts/SelectedContext';
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { v4 } from 'uuid';
-import { useForm, Controller } from 'react-hook-form';
-import { Image, TextInput, View, StyleSheet, ScrollView } from 'react-native';
+import { useForm } from 'react-hook-form';
+import { Image, View, StyleSheet } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { MediaTypeOptions } from 'expo-image-picker';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -12,8 +12,6 @@ import FormButton from './FormButton';
 import InputField from './InputField';
 import { useOutfits } from '../contexts/outfits';
 import { useClothes } from '../contexts/clothes';
-import Header from './Header';
-
 
 const AddItems = (props) => {
   const { control, handleSubmit, formState: { errors } } = useForm({});
@@ -29,8 +27,6 @@ const AddItems = (props) => {
     { label: 'Shoes', value: 'shoes' },
     { label: 'Accessory', value: 'accessory' },
   ]);
-
-
 
   //todo: seperate into hook
   const addImage = async () => {
@@ -52,7 +48,6 @@ const AddItems = (props) => {
     try {
       if(type === 1)
       {
-        
         await AsyncStorage.setItem('@clothes', JSON.stringify(clothes));
         jsonValue = await AsyncStorage.getItem('@clothes')
       } else {
