@@ -90,17 +90,3 @@ If you finish developing the minimum viable product (MVP) with time to spare, wh
 What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
 * elasticsearch
 * Redis
-
-8:18 am looked at https://reactnative.dev/docs/environment-setup to create a react native app
-
-9:10 am looked at https://reactnative.dev/docs/components-and-apis 
-
-3:02 pm started watching https://www.youtube.com/watch?v=VozPNrt-LfE&ab_channel=Academind
-
-3:55 pm 39:52 into https://www.youtube.com/watch?v=VozPNrt-LfE&ab_channel=Academind
-
-### Friday 24 Feb
-1:05 pm started reading https://www.reactnativeschool.com/how-to-upload-images-in-a-react-native-app
-1:50 pm finished reading https://www.reactnativeschool.com/how-to-upload-images-in-a-react-native-app
-1:54 pm started reading https://www.waldo.com/blog/add-an-image-picker-react-native-app
-2:37 pm finished reading https://www.waldo.com/blog/add-an-image-picker-react-native-app
